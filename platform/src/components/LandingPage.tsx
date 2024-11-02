@@ -33,9 +33,9 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6 text-center flex flex-col justify-center items-center">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                Land research opportunities in weeks
+                We Help Students Find Reserach at UC Davis
               </h1>
-              <p className="max-w-[700px] mx-auto text-lg text-white md:text-xl lg:text-2xl">
+              <p className="max-w-4/5 mx-auto text-lg text-white md:text-xl lg:text-2xl">
                 Find your dream research opportunity as an undergraduate student at UC Davis in weeks.
               </p>
               <div className="flex flex-col gap-2 md:flex-row justify-center">
