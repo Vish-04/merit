@@ -12,68 +12,6 @@ export default function LandingPage() {
 
   const [email, setEmail] = useState('')
 
-  const updateWaitlist = async () => {
-    if (!email.trim()) return
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailRegex.test(email)) {
-      toast('Please enter a valid email address.', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-      return;
-    }
-
-      toast('🦄 Adding you to the waitlist!', {
-        position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
-    try{
-      const response = await fetch(`${process.env.NEXT_PUBLIC_GOOGLE_SHEET_API}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ data: [{id:'INCREMENT', email: email}] })
-  
-    })
-    
-      const data = await response.json()
-      console.log(data)
-      setEmail('')
-      toast('Added!', {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
-    }
-    catch(error){
-      console.error(error)
-    }
-  }
-
   const redirectToJotform = () => { 
     window.open('https://form.jotform.com/242858099694073', '_blank');
   }
@@ -144,7 +82,7 @@ export default function LandingPage() {
                 </Button>
                 <Button
                   type="submit"
-                  onClick={updateWaitlist}
+                  onClick={redirectToJotform}
                   size="lg"
                   className={` text-semibold bg-green-400 text-black text-xl rounded-lg ease-in-out transition-all duration-30 focus-visible:ring-1 focus-visible:ring-ring`}
                 >
@@ -221,7 +159,7 @@ export default function LandingPage() {
                 </Button>
                 <Button
                   type="submit"
-                  onClick={updateWaitlist}
+                  onClick={redirectToJotform}
                   size="lg"
                   className={` text-semibold bg-green-400 text-black text-xl rounded-lg ease-in-out transition-all duration-30 focus-visible:ring-1 focus-visible:ring-ring`}
                 >
