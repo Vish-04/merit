@@ -1,204 +1,126 @@
-'use client';
-
-import Link from "next/link"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
-import { Bounce } from "react-toastify";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Beaker, Users, Trophy } from "lucide-react";
+import Image from "next/image";
 
 export default function LandingPage() {
-
-  const [email, setEmail] = useState('')
-
-  const redirectToJotform = () => { 
-    window.open('https://form.jotform.com/242858099694073', '_blank');
-  }
-
-  const redirectToCalendly = () => { 
-    window.open('https://calendly.com/vakkati/coffee-chats', '_blank');
-  }
-
   return (
-    <div className="flex flex-col min-h-[100vh] relative overflow-x-hidden">
-      <header className="absolute top-0 w-[100vw] px-6 h-14 flex items-center">
-        <Link href="#" className="flex items-center justify-center" prefetch={false}>
-          <SpaceIcon className="h-6 w-6"  />
-          <p className="text-xl ml-3 text-white">Merit</p>
-        </Link>
-      </header>
-      <main className="flex-1">
-        <section className="w-full h-[90vh] py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r flex justify-center from-[#00b09b] to-[#96c93d]">
-          <div className="container px-4 md:px-6 text-center flex flex-col justify-center items-center">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                We Help Students Find Reserach at UC Davis
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="bg-blue-600 text-white">
+        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+            <div className="space-y-8">
+              <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
+                Research at UC Davis, Simplified
               </h1>
-              <p className="max-w-4/5 mx-auto text-lg text-white md:text-xl lg:text-2xl">
-                Find your dream research opportunity as an undergraduate student at UC Davis in weeks.
+              <p className="text-2xl font-medium">
+                Connect with top professors. Elevate your academic journey.
               </p>
-              <div className="flex flex-col gap-2 md:flex-row justify-center">
-                <Button
-                  type="submit"
-                  size="lg"
-                  className={`bg-white hover:bg-white/90 text-black text-xl rounded-lg focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none`}
-                  onClick={redirectToCalendly}
-                >
-                  Schedule a Call
+              <a
+                href="https://calendly.com/rvanga1/researchconnect-research-goals-setting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 sm:mt-6"
+              >
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg font-bold">
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button
-                  type="submit"
-                  size="lg"
-                  className={`bg-black hover:bg-black/90 text-white text-xl rounded-lg focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none}`}
-                  onClick={redirectToJotform}
-                >
-                  Join the Waitlist
-                </Button>
+              </a>
+            </div>
+            <div className="flex justify-center relative lg:justify-start">
+              <Image
+                src="/images/uc-davis-logo.png"
+                alt="UC Davis Logo"
+                width={300}
+                height={300}
+                className="rounded-full lg:w-[500px] lg:h-[500px]"
+              />
+              <div className="absolute -bottom-4 lg:-left-4 bg-white text-blue-600 p-4 rounded-full shadow-lg">
+                <p className="text-xl font-bold">100+ Opportunities</p>
               </div>
             </div>
           </div>
-        </section>
-        <section className="w-full h-[90vh]">
-          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center h-full w-full py-12 px-8 md:py-20 md:px-12 gap-12 md:gap-4">
-            <div className="flex flex-col gap-4 mt-[-4rem] w-full md:w-4/5">
-              <div className="inline-block rounded-lg w-min text-nowrap bg-gray-200 px-3 py-1 text-sm text-gray-500">
-                Key Benefits
-              </div>
-              <p className="text-3xl font-bold tracking-wider sm:text-4xl md:text-5xl">
-                THE OPTIMAL ALGORITHM<span className="text-green-400">.</span>
-              </p>
-              <p className="max-w-[600px] text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Use our <span className="text-green-400 font-semibold">fundemental</span> set of steps to help you find the most <span className="text-green-400 font-semibold"> quality research </span> positions.
-              </p>
-              <div className="flex flex-col gap-2 md:flex-row mr-4">
-                <Button
-                  type="submit"
-                  size="lg"
-                  onClick={redirectToCalendly}
-                  className={` text-semibold bg-black text-white text-xl rounded-lg ease-in-out transition-all duration-30 focus-visible:ring-1 focus-visible:ring-ring`}
-                >
-                  Schedule a Call
-                </Button>
-                <Button
-                  type="submit"
-                  onClick={redirectToJotform}
-                  size="lg"
-                  className={` text-semibold bg-green-400 text-black text-xl rounded-lg ease-in-out transition-all duration-30 focus-visible:ring-1 focus-visible:ring-ring`}
-                >
-                  Join the Waitlist
-                </Button>
-              </div>
-            </div>
-            <img
-              src="images\img1.webp"
-              alt="Merit"
-              className="md:w-2/5 w-full md:h-full object-center rounded-xl"
-            />
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 md:grid-cols-3">
+            {features.map((feature, index) => (
+              <Card key={index} className="border-none shadow-none">
+                <CardContent className="p-6 text-center">
+                  <feature.icon className="h-16 w-16 text-blue-600 mx-auto mb-6" />
+                  <h2 className="text-2xl font-bold mb-4 text-blue-900">{feature.title}</h2>
+                  <p className="text-lg text-blue-700">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </section>
-        <section className="w-full h-[90vh] bg-gradient-to-r from-[#00b09b] to-[#96c93d]">
-          <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center h-full w-full md:py-20 py-12 px-8 md:px-12 gap-12 md:gap-4">
-          <img
-              src="images\img2.png"
-              alt="Merit"
-              className="overflow-hidden md:w-2/5 w-full md:h-full rounded-xl object-center object-contain"
-            />
-            <div className="flex flex-col gap-4 mt-[-4rem] w-fullmd:w-4/5">
-              <div className="inline-block rounded-lg w-min text-nowrap bg-gray-200 px-3 py-1 text-sm text-gray-500">
-                Key Benefits
-              </div>
-              <p className="text-3xl font-bold text-white tracking-wider sm:text-4xl md:text-5xl">
-                CHOOSE PROFESSORS<span className="text-green-400">.</span>
-              </p>
-              <p className="max-w-[600px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                <span className="underline underline-offset-4 decoration-semibold font-semibold">Leverage Merit</span> to talk and meet with the <span className="underline underline-offset-4 decoration-semibold font-semibold"> best</span> professors in <span className="underline underline-offset-4 decoration-semibold font-semibold">your field of interest</span>
-              </p>
-              <div className="flex flex-col gap-2 md:flex-row">
-                <Button
-                  type="submit"
-                  size="lg"
-                  className={`bg-white hover:bg-white/90 text-black text-xl rounded-lg focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none`}
-                  onClick={redirectToCalendly}
-                >
-                  Schedule a Call
-                </Button>
-                <Button
-                  type="submit"
-                  size="lg"
-                  className={`bg-black hover:bg-black/90 text-white text-xl rounded-lg focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none}`}
-                  onClick={redirectToJotform}
-                >
-                  Join the Waitlist
-                </Button>
-              </div>
-            </div>
-            
-          </div>
-        </section>
-        <section className="w-full h-[90vh]">
-          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center h-full w-full py-12 px-8 md:py-20 md:px-12 gap-12 md:gap-4">
-            <div className="flex flex-col gap-4 mt-[-4rem] w-full md:w-4/5">
-              <div className="inline-block rounded-lg w-min text-nowrap bg-gray-200 px-3 py-1 text-sm text-gray-500">
-                Key Benefits
-              </div>
-              <p className="text-3xl font-bold tracking-wider sm:text-4xl md:text-5xl">
-                LAND RESEARCH<span className="text-green-400">.</span>
-              </p>
-              <p className="max-w-[600px] text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Use our <span className="text-green-400 font-semibold">personalized</span> preparation material to impress and<span className="text-green-400 font-semibold"> land roles</span> in lab groups  .
-              </p>
-              <div className="flex flex-col gap-2 md:flex-row mr-4">
-                <Button
-                  type="submit"
-                  size="lg"
-                  onClick={redirectToCalendly}
-                  className={` text-semibold bg-black text-white text-xl rounded-lg ease-in-out transition-all duration-30 focus-visible:ring-1 focus-visible:ring-ring`}
-                >
-                  Schedule a Call
-                </Button>
-                <Button
-                  type="submit"
-                  onClick={redirectToJotform}
-                  size="lg"
-                  className={` text-semibold bg-green-400 text-black text-xl rounded-lg ease-in-out transition-all duration-30 focus-visible:ring-1 focus-visible:ring-ring`}
-                >
-                  Join the Waitlist
-                </Button>
-              </div>
-            </div>
-            <img
-              src="images\img1.png"
-              alt="Merit"
-              className="overflow-hidden md:w-2/5 w-full md:h-full object-center object-contain"
-            />
-          </div>
-        </section>
-      </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-2 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Merit. All rights reserved.</p>
-      </footer>
-      <ToastContainer />
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="bg-blue-50 py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <blockquote className="text-center">
+            <p className="text-3xl font-bold text-blue-900 mb-8">
+              "ResearchConnect allowed me to set up meetings with some of the top professors in my field at UC Davis. I'm glad I set up an initial meeting with them."
+            </p>
+            <footer className="text-xl text-blue-700">
+              <strong>Emily Chen</strong> • Neurobiology, Physiology & Behavior
+            </footer>
+          </blockquote>
+
+          {/* Additional Testimonial */}
+          <blockquote className="text-center mt-16">
+            <p className="text-3xl font-bold text-blue-900 mb-8">
+              "I was able to get a research position in a lab that I was interested in. I'm grateful for the opportunity to work with such a great team."
+            </p>
+            <footer className="text-xl text-blue-700">
+              <strong>Michael Johnson</strong> • Cell Biology
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="bg-blue-600 text-white py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-8">Ready to Start Your Research Journey?</h2>
+          <a
+            href="https://calendly.com/rvanga1/researchconnect-research-goals-setting"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg font-bold">
+              Schedule Your Consultation
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
+        </div>
+      </section>
     </div>
-  )
+  );
 }
 
-function SpaceIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="white"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      color="white"
-    >
-      <path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1" />
-    </svg>
-  )
-}
+// Updated feature order
+const features = [
+  {
+    title: "Career Boost",
+    description: "Gain experience that sets you apart in your future endeavors.",
+    icon: Trophy,
+  },
+  {
+    title: "Exclusive Access",
+    description: "Connect with research opportunities not available elsewhere.",
+    icon: Beaker,
+  },
+  {
+    title: "Professor Connect",
+    description: "Get the chance to connect with top professors aligned to your interests and skills.",
+    icon: Users,
+  },
+];
