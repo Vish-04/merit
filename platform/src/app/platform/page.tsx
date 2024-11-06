@@ -23,6 +23,7 @@ const Page = () => {
   const {user} = useUser();
   const [userInfo, setUserInfo] = useState<User | null>(null)
 
+
   useEffect(() => {
 
     const fetchUser = async (email: string) =>{
@@ -36,6 +37,11 @@ const Page = () => {
 
 
   }, [user?.email])
+
+
+  const exfunc = () => {
+    console.log('hi')
+  }
 
   return (
     userInfo ? 
