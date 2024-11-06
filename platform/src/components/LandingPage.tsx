@@ -65,24 +65,27 @@ export default function LandingPage() {
       {/* Testimonial Section */}
       <section className="bg-blue-50 py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Benedict Palma's Testimonial */}
           <blockquote className="text-center">
+            <p className="text-3xl font-bold text-blue-900 mb-8">
+              "The team at ResearchConnect was able to get me the perfect lab position in just a week. I am incredibly grateful for both the opportunity and the dedicated support from the team."
+            </p>
+            <footer className="text-xl text-blue-700">
+              <strong>Benedict Palma</strong> • Human Biology
+            </footer>
+          </blockquote>
+
+          {/* Sabrina Tran's Testimonial */}
+          <blockquote className="text-center mt-16">
             <p className="text-3xl font-bold text-blue-900 mb-8">
               "ResearchConnect allowed me to set up meetings with some of the top professors in my field at UC Davis. I'm glad I set up an initial meeting with them."
             </p>
             <footer className="text-xl text-blue-700">
-              <strong>Emily Chen</strong> • Neurobiology, Physiology & Behavior
+              <strong>Sabrina Tran</strong> • Neurobiology, Physiology & Behavior
             </footer>
           </blockquote>
 
-          {/* Additional Testimonial */}
-          <blockquote className="text-center mt-16">
-            <p className="text-3xl font-bold text-blue-900 mb-8">
-              "I was able to get a research position in a lab that I was interested in. I'm grateful for the opportunity to work with such a great team."
-            </p>
-            <footer className="text-xl text-blue-700">
-              <strong>Michael Johnson</strong> • Cell Biology
-            </footer>
-          </blockquote>
         </div>
       </section>
 
