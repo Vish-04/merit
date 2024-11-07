@@ -66,8 +66,8 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <Box className="container flex justify-center h-[80vh] gap-4 py-20 mx-auto sm:px-6 lg:px-8">
-        <Box className="flex flex-col items-center w-[40vw] p-4">
+      <Box className="container flex flex-col md:flex-row justify-center min-h-[80vh] gap-4 py-20 mx-auto sm:px-6 lg:px-8">
+        <Box className="flex flex-col items-center w-full md:w-[40vw] p-4">
           <Box>
             <Typography variant="h3" fontWeight={600} className="text-black text-left"><span className="text-blue-600 text-bold underline">Elevate</span> your Resume with Research</Typography>
             <Typography variant="body2" mt={2} className="flex text-2xl mt-4 text-gray-700 font-mono text-left ml-0">Bolster your chances of admission to top graduate, medical, and industry programs.</Typography>
@@ -83,11 +83,11 @@ export default function LandingPage() {
             </Box>
             <Box className="flex flex-col items-center justify-center">
               <Typography variant="h3" fontWeight={700} className=" text-gray-700 font-mono">5+</Typography>
-              <Typography variant="h6" fontWeight={400} className=" text-gray-700 font-mono">Students Helped</Typography>
+              <Typography variant="h6" fontWeight={400} className=" text-gray-700 font-mono">Students</Typography>
             </Box>
           </Box>
         </Box>
-        <Box className="grid  w-[60vw] grid-cols-2">
+        <Box className="grid md:w-[60vw] grid-cols-2">
           {features.map((feature, index) => (
             <Card key={index} className="border-none shadow-none">
               <CardHeader
@@ -96,7 +96,7 @@ export default function LandingPage() {
                   <Box className="flex items-center justify-center p-2 bg-blue-100 rounded-lg">
                     <feature.icon className="h-8 w-8 text-blue-600" />
                   </Box>
-                  <Typography fontWeight="bold" variant="h6" className="text-5xl text-nowrap mb-2 text-blue-900">{feature.title}</Typography>
+                  <Typography fontWeight="bold" variant="h6" className="text-5xl md:text-nowrap mb-2 text-blue-900">{feature.title}</Typography>
                 </Box>
                 }
               />
@@ -110,7 +110,7 @@ export default function LandingPage() {
 
       {/* Testimonial Section */}
       <section className="bg-blue-50 py-20 flex flex-col gap-8 items-center justify-center">
-        <Typography variant="h3" fontWeight={600} className="text-black text-left">What Our Students Say</Typography>
+        <Typography variant="h3" fontWeight={600} className="text-black text-center">What Our Students Say</Typography>
         <Box className="container flex flex-wrap justify-center items center gap-4 mx-auto px-4 sm:px-6 lg:px-8">
          
           {/* BENEDICT PALMA */}
