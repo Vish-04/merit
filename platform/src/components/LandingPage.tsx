@@ -1,4 +1,5 @@
 // ** Next Imports
+// @ts-ignore
 import Image from "next/image";
 
 // ** MUI Imports
