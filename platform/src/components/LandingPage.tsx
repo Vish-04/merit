@@ -124,7 +124,7 @@ export default function LandingPage() {
               <Image src="/images/benedict-palma.jpg" alt="Benedict Palma" width={50} height={50} className="rounded-full" />
               <Box className="flex flex-col justify-center">
                 <Typography variant="body2" fontWeight={400} className="text-xl font-mono">Benedict Palma</Typography>
-                <Typography variant="body2" fontWeight={300} className="text-xl font-mono">Human Biology @ UC Davis</Typography>
+                <Typography variant="body2" fontWeight={300} className="text-xl font-mono">Human Bio & Computational Bio @ UC Davis</Typography>
               </Box>
             </Box>
           </Box>
@@ -133,13 +133,13 @@ export default function LandingPage() {
           <Box className="p-6 bg-white rounded-xl border border-gray-200 w-[400px] shadow-lg">
             <Quote fill="#2563eb" className="w-10 h-10 text-blue-600" />
             <Typography variant="body1" mt={2} fontWeight={600} className="text-3xl font-bold">
-              ResearchConnect allowed me to set up meetings with some of the top professors in my field at UC Davis. I'm glad I set up an initial meeting with them.
+              ResearchConnect helped me set up initial meetings with some of the top professors at UC Davis. I am grateful I got the opportunity to speak and learn from them.
             </Typography>
             <Box className="flex items-center gap-4 mt-8">
-              <Image src="/images/sabrina-tran.jpg" alt="Sabrina Tran" width={50} height={50} className="rounded-full" />
+              <Image src="/images/sabrina-tran.avif" alt="Sabrina T." width={50} height={50} className="rounded-full" />
               <Box className="flex flex-col justify-center">
                 <Typography variant="body2" fontWeight={400} className="text-xl font-mono">Sabrina Tran</Typography>
-                <Typography variant="body2" fontWeight={300} className="text-xl font-mono">Neurobiology, Physiology & Behavior</Typography>
+                <Typography variant="body2" fontWeight={300} className="text-xl font-mono">Biological Sciences @ UC Davis</Typography>
               </Box>
             </Box>
           </Box>

@@ -1,0 +1,70 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String?  @db.Text
+  email      String   @unique @db.Text
+  created_at  DateTime @default(now()) @db.Timestamptz
+  updated_at  DateTime? @default(now()) @db.Timestamptz
+  geoip      Json?
+  ip         String?  @db.Text
+  status     String   @default("unregistered") @db.Text
+  smtp_password String? @db.Text
+  cohort String? @db.Text
+
+  personalizations Personalization[]
+  emails Email[] 
+}
+
+model Department {
+  id        BigInt   @id @default(autoincrement()) @db.BigInt
+  created_at DateTime @default(now()) @db.Timestamptz
+  name      String   @db.Text
+  url       String   @unique @db.Text
+  
+  professors Int[]
+  emails Int[] 
+}
+
+model Email {
+  id              BigInt   @id @default(autoincrement()) @db.BigInt
+  created_at       DateTime @default(now()) @db.Timestamptz
+  user_email       String   @db.Text
+  professorId     BigInt   @db.BigInt
+  body            String   @db.Text
+  personalization String   @db.Text
+  departmentId BigInt   @db.BigInt
+
+  user   User @relation(fields: [user_email], references: [email], map: "Email_User_fkey")
+  department   Int[]
+  professor       Professor @relation(fields: [professorId], references: [id], map: "Email_Professor_fkey")
+}
+
+model Professor {
+  id          BigInt   @id @default(autoincrement()) @db.BigInt
+  created_at   DateTime @default(now()) @db.Timestamptz
+  name        String   @db.Text
+  email       String   @unique @db.Text
+  page_content String   @db.Text
+  
+  emails      Email[]
+  department  Int[]
+  personalizations Personalization[]
+}
+
+model Personalization {
+  id           BigInt     @id @default(autoincrement()) @db.BigInt
+  created_at   DateTime   @default(now()) @db.Timestamptz
+  name         String     @db.Text
+  departmentId BigInt     @db.BigInt
+  professorId  BigInt     @db.BigInt
+  user_email   String     @db.Text
+
+  user         User       @relation(fields: [user_email], references: [email], map: "Personalization_User_fkey")
+  department   Int[]
+  professor    Professor  @relation(fields: [professorId], references: [id], map: "Personalization_Professor_fkey")
+}
