@@ -16,3 +16,18 @@
     animation: float 3s ease-in-out infinite;
     transform-origin: center;
   }
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px; /* Adjust the width to make it thinner */
+}
+
+::-webkit-scrollbar-track {
+    background: white; /* White track */
+    border-radius: 10px; /* Oval shape */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(32, 87, 206); /* Blue thumb */
+    border-radius: 10px; /* Oval shape */
+}
