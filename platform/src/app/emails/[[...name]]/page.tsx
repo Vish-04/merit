@@ -35,6 +35,32 @@ const page = () => {
         }
     };
 
+    const fetchDataNathan = async () => {
+        try {
+            setUserName('Nathan Buntzan');
+            setUserMajor('in the College of Biological Sciences at UC Davis');
+            
+            const emailsResponse = await fetch('/data/emails_mcb.json');
+            const namesResponse = await fetch('/data/names_mcb.json');
+            const personalizationsResponse = await fetch('/data/repersonalization_mcb_2.json');
+
+            const emailsResponseTwo = await fetch('/data/emails_genetics.json');
+            const namesResponseTwo = await fetch('/data/names_genetics.json');
+            const personalizationsResponseTwo = await fetch('/data/repersonalization_genetics_2.json');
+
+            const emails = (await emailsResponse.json()).concat(await emailsResponseTwo.json());
+            const names = (await namesResponse.json()).concat(await namesResponseTwo.json());
+            const personalizations = (await personalizationsResponse.json()).concat(await personalizationsResponseTwo.json());
+
+            console.log(emails);
+            console.log(names);
+
+            setData({ emails, names, personalizations });
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
 
     const params = useParams();
     const name = (params.name || ['noName']) as string[];
@@ -43,6 +69,8 @@ const page = () => {
     useEffect(() => {
         if (name[0] === 'davids') {
             fetchDataDavid();
+        } else if (name[0] === 'nathanb') {
+            fetchDataNathan();
         }
     }, [name]);
 
@@ -56,7 +84,8 @@ const page = () => {
                         <p className='mb-1'><strong>Email:</strong> {email}</p>
                             
                         <p className='mt-4'> {
-                            `Dear Professor ${data.names[index]}
+                            `Dear Professor ${data.names[index].replace('\n', '')},
+
 My name is ${userName.split(' ')[0]}, and I'm an undergraduate student ${userMajor}.
 
 ${data.personalizations[index]}
