@@ -75,8 +75,8 @@ const page = () => {
     }, [name]);
 
     return (
-        <div className='w-full h-full flex flex-col items-center justify-center p-10'>
-            <h1 className='text-2xl font-bold mb-4'>Email Personalizations</h1>
+        <div className='w-full min-w-screen min-h-screen h-full flex flex-col items-center justify-center p-10 bg-blue-300'>
+            <h1 className='text-2xl font-bold mb-4 text-white'>Email Personalizations</h1>
             {data.emails.length > 0 ? (
                 data.emails.map((email, index) => (
                     <div key={index} className='w-full max-w-4xl p-4 border border-gray-300 bg-blue-50 rounded-lg shadow-md mb-4'>
@@ -86,15 +86,17 @@ const page = () => {
                         <p className='mt-4'> {
                             `Dear Professor ${data.names[index].replace('\n', '')},
 
+I hope your Thanksgiving week is starting well!
+
 My name is ${userName.split(' ')[0]}, and I'm an undergraduate student ${userMajor}.
 
 ${data.personalizations[index]}
 
 If you have some time, I would love to schedule a quick meeting or coffee chat to learn more about you and discuss your research.
 
-Thank you for your time, and I look forward to hearing from you.
+Thank you for your time, and I look forward to hearing from you!
 
-Kind Regards,
+Sincerely,
 ${userName}
 `.split('\n').map((line, i) => (
                                 <span key={i}>
