@@ -37,7 +37,7 @@ const page = () => {
 
     const fetchDataNathan = async () => {
         try {
-            setUserName('Nathan Buntzan');
+            setUserName('Nathan Buntzen');
             setUserMajor('in the College of Biological Sciences at UC Davis');
             
             const emailsResponse = await fetch('/data/emails_mcb.json');
