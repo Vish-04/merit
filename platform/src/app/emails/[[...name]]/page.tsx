@@ -14,6 +14,26 @@ const page = () => {
     const [userName, setUserName] = useState<string>('');
     const [userMajor, setUserMajor] = useState<string>('');
 
+    const fetchDataGabriel = async () => {
+        try {
+            setUserName('Gabriel Mojica-Palafox');
+            setUserMajor('in the Department of Animal Science at UC Davis');
+            
+            const emailsResponse = await fetch('/data/emails_animal.json');
+            const namesResponse = await fetch('/data/names_animal.json');
+            const personalizationsResponse = await fetch('/data/personalizations_animal.json');
+
+            const emails = await emailsResponse.json();
+            const names = await namesResponse.json();
+            const personalizations = await personalizationsResponse.json();
+
+            setData({ emails, names, personalizations });
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
     const fetchDataDavid = async () => {
         try {
             setUserName('David Sweet');
@@ -71,6 +91,8 @@ const page = () => {
             fetchDataDavid();
         } else if (name[0] === 'nathanb') {
             fetchDataNathan();
+        } else if(name[0] === 'gabrielmp') {
+            fetchDataGabriel();
         }
     }, [name]);
 
@@ -86,7 +108,7 @@ const page = () => {
                         <p className='mt-4'> {
                             `Dear Professor ${data.names[index].replace('\n', '')},
 
-I hope your Thanksgiving week is starting well!
+I hope you had a great holiday season!
 
 My name is ${userName.split(' ')[0]}, and I'm an undergraduate student ${userMajor}.
 

@@ -2,7 +2,7 @@ import json
 from openai import OpenAI
 
 scraped_data =[]
-with open('scraped_data_genetics.json', 'r') as f:
+with open('scraped_data_animal.json', 'r') as f:
     scraped_data = json.load(f)
 
 # OpenAI API key setup
@@ -48,5 +48,5 @@ Professor Personal Page:
     personalizations.append(personalization)
 
 # Save the personalizations to a JSON file
-with open('personalizations_genetics.json', 'w') as outfile:
+with open('personalizations_animal.json', 'w') as outfile:
     json.dump(personalizations, outfile, indent=4)

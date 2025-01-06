@@ -43,19 +43,19 @@ def extract_links(url):
 
     return links_list, name_list, email_list
 
-def save_links_to_json(links, names, emails, filename='links_psych.json'):
+def save_links_to_json(links, names, emails, filename='links_animal.json'):
     with open(filename, 'w') as json_file:
         json.dump(links, json_file, indent=4)
 
-    with open('names_psych.json', 'w') as json_file:
+    with open('names_animal.json', 'w') as json_file:
         json.dump(names, json_file, indent=4)
     
-    with open('emails_psych.json', 'w') as json_file:  # Corrected file extension
+    with open('emails_animal.json', 'w') as json_file:  # Corrected file extension
         json.dump(emails, json_file, indent=4)
     
 
 if __name__ == "__main__":
-    url = "https://psychology.ucdavis.edu/people/faculty"
+    url = "https://animalscience.ucdavis.edu/people/faculty"
     all_links, names, emails = extract_links(url)
     for i in range(0):
         new_all_links, new_names, new_emails = extract_links(f'{url}?page={i}')
