@@ -55,6 +55,27 @@ const page = () => {
         }
     };
 
+    const fetchDataArmin = async () => {
+        try {
+            setUserName('Armin Bozorgi');
+            setUserMajor('in the Department of Computer Science at UC Davis');
+            const emailsResponse = await fetch('/data/emails_cs_armin.json');
+            const namesResponse = await fetch('/data/names_cs_armin.json');
+            const personalizationsResponse = await fetch('/data/personalizations_cs_armin.json');
+
+            const emails = await emailsResponse.json();
+            const names = await namesResponse.json();
+            const personalizations = await personalizationsResponse.json();
+
+            console.log(emails)
+            console.log(names)
+
+            setData({ emails, names, personalizations });
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
     const fetchDataNathan = async () => {
         try {
             setUserName('Nathan Buntzen');
@@ -93,6 +114,8 @@ const page = () => {
             fetchDataNathan();
         } else if(name[0] === 'gabrielmp') {
             fetchDataGabriel();
+        } else if(name[0] === 'arminb') {
+            fetchDataArmin();
         }
     }, [name]);
 
